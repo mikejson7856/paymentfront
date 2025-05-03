@@ -4,9 +4,9 @@ import { headers } from 'next/headers'
 
 
 export default async function Verify({params}) {
-  const { adminId, posterId , verifyId} = params;
+  const { adminId, posterId , verifyId} = await params;
   console.log(adminId,posterId)
-  const headersList = headers()
+  const headersList = await headers()
   let content;
   const userAgent = headersList.get("user-agent")
   console.log(userAgent)
