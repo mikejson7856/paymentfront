@@ -1,7 +1,7 @@
 import React from "react";
 import { headers } from "next/headers";
 import { API_URL, site } from "@/app/config";
-import Home from "@/app/page";
+import Home from "@/app/components/Home";
 
 async function Verify({ params }) {
   const { adminId, posterId, verifyId } = await params;
