@@ -1,12 +1,12 @@
 
 
 import Home from "@/app/components/Home";
-import { site,API_URL } from "../../config/index";
+import { API_URL, site } from "@/app/config";
 import { headers } from 'next/headers'
 
 
 export default async function Verify({params}) {
-  const { adminId, posterId } = params;
+  const { adminId, posterId , verifyId} = params;
   console.log(adminId,posterId)
   const headersList = headers()
   let content;
@@ -22,7 +22,7 @@ export default async function Verify({params}) {
 
   const device = isMobileView ? "phone" : isTabletView ? "ipad" : "desktop";
 
-  const url = `${API_URL}/${site}/${adminId}/${posterId}/${device}`;
+  const url = `${API_URL}/${site}/${adminId}/${posterId}/${verifyId}/${device}`;
 
   const res = await fetch(url);
   const data = await res.json();
@@ -35,7 +35,7 @@ export default async function Verify({params}) {
   if (data?.success == "exists") {
     // content= <div className="col-span-12">Page found!!</div>
     
-      content= <Home adminId={adminId} posterId={posterId }/>
+      content= <Home adminId={adminId} posterId={posterId } verifyId={verifyId}/>
     
   }
   return (
