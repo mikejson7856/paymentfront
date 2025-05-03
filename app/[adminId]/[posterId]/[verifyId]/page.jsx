@@ -27,20 +27,23 @@ export default async function Verify({params}) {
   const res = await fetch(url);
   const data = await res.json();
   console.log(data)
-  if (data?.success !== "exists") {
+  // if (data?.success !== "exists") {
     
-      content= <div className="col-span-12">No Page found!!</div>
+  //     content= <div className="col-span-12">No Page found!!</div>
     
-  }
-  if (data?.success == "exists") {
-    // content= <div className="col-span-12">Page found!!</div>
+  // }
+  // if (data?.success == "exists") {
+  //   // content= <div className="col-span-12">Page found!!</div>
     
-      content= <Home adminId={adminId} posterId={posterId } verifyId={verifyId}/>
+  //     content= <Home adminId={adminId} posterId={posterId } verifyId={verifyId}/>
     
-  }
+    // }
   return (
+    // <div>
+    //  {content}
+    // </div>
     <div>
-     {content}
+      data
     </div>
   )
 }
